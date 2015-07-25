@@ -1,0 +1,50 @@
+
+<div ng-show="loading && climas.empty">
+  No hay datos de pronóstico generados. Ingrese <a ui-sref="generacion">aquí</a> para generarlos.
+ </div>
+
+<div class="row" ng-show="loading && !climas.empty">
+  <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+  <select name="" id="input" ng-model="searchClima" ng-change="getPage(0)"class="form-control" required="required">
+    <option value="">TODOS</option>
+    <option value="SEQUIA">SEQUIA</option>
+    <option value="LLUVIA">LLUVIA</option>
+    <option value="OPTIMO">OPTIMO</option>
+    <option value="NORMAL">NORMAL</option>
+  </select>
+
+    <div style="min-height:500px; padding-top:20px;">
+
+      <table class="table">
+
+        <thead>
+          <tr>          
+            <th>Dia</th>
+            <th>Clima</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ui-sref-active="active" class="active" ui-sref=".show({climaId: clima.dia})" ng-repeat="clima in climas.data">
+            <!--<td>{{product.id}}</td>-->
+            <td> <a href="" class="lead">{{clima.dia}}</a></td>
+              
+              <td><span class="lead">{{clima.clima}}</span></td>
+
+              <td><a><i class="glyphicon glyphicon-menu-right"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <pagination total-items="paginateTotal" ng-model="paginateCurrentPage" ng-change="pageChanged()" max-size="paginateMaxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="paginateNumPages"></pagination>
+
+      </div>
+
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 view-container well custom-container">
+        <div class="view-frame" ui-view style="min-height:800px;"></div>
+      </div>
+
+
+    </div>

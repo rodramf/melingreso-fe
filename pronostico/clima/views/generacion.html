@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      Configuraciones
+      <span ui-sref="settings" class="glyphicon glyphicon-pencil pull-right" style="cursor:pointer" tooltip="Modificar configuraciones"></span>
+      </div>
+      <div class="panel-body">
+      <h4>Generales</h4>
+      <p>Cantidad de días: {{settings.cantidadDias}} días</p>
+      <p>Margen de Error: {{settings.margenErrorKm}} Km</p>
+
+      <p class="separetor"></p>
+
+      <h4>Planetas</h4>
+
+      <div ng-repeat="planeta in planetas.data">
+        <h5 class="header-info">{{planeta.nombre}}</h5>
+        <p>Distancia del Sol: {{planeta.distanciaSol}} KM</p>
+        <p>Sentido: {{planeta.sentido}}</p>
+        <p>Velocidad: {{planeta.gradosPorDia}} x día</p>
+        <p>Grados Origen: {{planeta.gradosOrigen}}</p>
+      </div>
+
+     </div>
+   </div>    
+ </div>
+ <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+
+ <div class="row">
+   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+     <div class="panel panel-default">
+       <div class="panel-heading">
+        Informe del Pronóstico para los próximos {{settings.cantidadDias}}
+        <a class="btn btn-primary pull-right btn-xs" tooltip="Ejecutar" ng-click="ejecutarPronostico()"><span class="glyphicon glyphicon-play" ></span></a> 
+       </div>
+       <div class="panel-body">
+          <p>{{msg}}</p>
+
+          <div ng-show="result">
+
+          <table class="table table-bordered">
+            <tr>
+              <td>Dias con sequia</td>
+              <td>{{pronostico.diasSequia}}</td>
+            </tr>
+            <tr>
+              <td>Dias óptimos de presión y temperatura</td>
+              <td>{{pronostico.diasOptimo}}</td>
+            </tr>
+            <tr>
+              <td>Dias con lluvia</td>
+              <td>{{pronostico.diasLluvia}}</td>
+            </tr>
+            <tr>
+              <td>Dia de mayor precipitación</td>
+              <td>{{pronostico.diaMayorLluvia}}</td>
+            </tr>
+          </table>
+
+          <a class="btn btn-primary" ng-click="generarPronostico()" tooltip="Guarda la información del clima de todos los días para próximas consultas"> <span class="glyphicon glyphicon-floppy-disk"></span> Generar datos</a>
+            
+          <div ng-show="msgGenerar" style="margin-top:20px;">
+            {{msgGenerar}}
+          </div>
+
+          </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ </div>
+</div>
+

@@ -1,0 +1,26 @@
+
+<h2>Ejercio de ingreso para Mercado Libre 
+<br>
+<small>Rodrigo M. Fernández - @rodramf - rodrigo.m.fernandez@gmail.com</small>
+</h2>
+
+
+Algunas consideraciones:
+<ul>
+  <li>Para los cálculos de linealidad entre planetas se consideró un factor de error debido al redondeo de decimales que se realizan en el cálculo de posición en los ejes X e Y.</li>
+  <li>Para determinar si el Sol se encuentra dentro del triangulo formado por los planetas se utilizó las fórmulas de <a href="http://totologic.blogspot.com/2014/01/accurate-point-in-triangle-test.html" target="blank" title="">este blog</a></li>
+  <li>Las variables generales del sistema y de los planetas son configurables desde el front end desde la sección de Settings</li>
+</ul>
+
+Arquitectura de solución
+
+<ul>
+  <li>El desarrollo sigue el modelo API Driven Application, con el objetivo de independizar la lógica de negocio de los distintos tipos de front end (web, mobile, smart tv, etc)</li>
+  <li>Se utilizó Grails 2.4.5 para el desarrollo del back-end</li>
+  <li>Base de Datos in-memory H2</li>
+  <li>La capa de Front End es Singel Page App en Angular 1.3</li>
+  <li>Las APIs son REST Full para todos los casos</li>
+  <li>Dejo disponible el <a href="data/Melingreso.json.postman_collection" title="">export del cliente POSTMAN de chrome</a> para que puedan consultar la documentación de las APIs generadas</li>
+  <li>No se consideró para esta versión aspectos de seguridad ni manejo de sesión de usuario</li>
+  <li>Tampoco se incluyeron el desarrollo de las pruebas unitarias y de integración</li>
+</ul>

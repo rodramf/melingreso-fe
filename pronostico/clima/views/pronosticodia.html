@@ -1,0 +1,32 @@
+<div class="lead">
+  Día {{clima.dia}} - {{clima.clima}}
+</div>
+<p>Fecha de generación: {{clima.lastUpdated | date : format : timezone}}</p>
+
+
+
+<div class="row">
+  <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+    <div class="diagrama">
+
+      <div class="center">
+      <div class="sol"></div>
+        <div class="planeta" ng-repeat="planeta in planetas" ng-init="myStyle={'left':planeta.posicionX*100/2500 + '%', 'bottom':planeta.posicionY*100/2500 + '%'}" ng-class="{'blue':planeta.id==1, 'red':planeta.id==2, 'green':planeta.id==3}" ng-style="myStyle" tooltip="{{planeta.nombre}}">
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+    <div ng-repeat="planeta in planetas">
+      <h4 ng-class="{'pblue':planeta.id==1, 'pred':planeta.id==2, 'pgreen':planeta.id==3}">{{planeta.nombre}}</h4>
+      <p>Pos X: {{planeta.posicionX}}</p>
+      <p>Pos Y: {{planeta.posicionY}}</p>
+    </div>
+  </div>
+</div>
+
+
+
